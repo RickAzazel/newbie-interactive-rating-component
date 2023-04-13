@@ -1,16 +1,16 @@
 // rating container
-let ratingContainer = document.querySelector('.rating-container');
-let submitBtn = document.querySelector('.rating-btn');
-let ratingScaleNumbers = document.querySelectorAll('.scale-number')
+let ratingContainer = document.querySelector('.rating-window');
+let submitBtn = document.querySelector('.button');
+let ratingScaleNumbers = document.querySelectorAll('.label')
 let ratingScaleNumbersArray = [...ratingScaleNumbers];
 
 // thank you container
-let thankYouContainer = document.querySelector('.thank-you-container');
-let ratingResult = document.querySelector('#rating');
+let thankYouContainer = document.querySelector('.thank-you-window');
+let ratingResult = document.querySelector('.selected-rating');
 
-// gets a result rating number
+// gets a result rating number 
 ratingScaleNumbersArray.forEach((item) => {
-	item.addEventListener('click', function(){
+	item.addEventListener('click', function () {
 		ratingResult.innerHTML = item.innerHTML;
 	});
 });
