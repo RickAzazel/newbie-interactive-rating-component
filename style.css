@@ -105,22 +105,22 @@ body {
 	transition: all 0.5s ease;
 }
 
-.input:checked ~ .label {
+.input:checked~.label {
 	background-color: rgb(149, 158, 172);
 }
 
-.input:checked + .label {
+.input:checked+.label {
 	background-color: rgb(251, 116, 19);
 	color: white;
 }
 
-.input:not(:checked) ~ .label:hover {
+.input:not(:checked)~.label:hover {
 	cursor: pointer;
 	background-color: rgb(251, 116, 19);
 	color: white;
 }
 
-.input:not(:checked) ~ .label:hover ~ .label:nth-child(5n-1) {
+.input:not(:checked)~.label:hover~.label:nth-child(5n-1) {
 	background-color: rgb(149, 158, 172);
 	color: white;
 }
