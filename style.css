@@ -1,14 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
 *,
 ::after,
 ::before {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+	font-family: Overpass, sans-serif;
+}
+
+:root {
+	/** ===================== Colors ===================== */
+	/* Background */
+	--wrapper-bg-color: rgb(18, 20, 23);
+	--rating-window-bg-color: radial-gradient(ellipse at top,
+			rgb(37, 45, 55),
+			rgb(22, 28, 33) 70%);
+	--thank-you-window-bg-color: radial-gradient(ellipse at top,
+			rgb(37, 45, 55),
+			rgb(22, 28, 33) 70%);
+	--icon-bg-color: rgb(37, 45, 55);
+	--icon-bg-color--hover: rgb(149, 158, 172);
+	--label-bg-color: rgb(37, 45, 55);
+	--label-bg-color--checked-gray: rgb(149, 158, 172);
+	--label-bg-color--checked-orange: rgb(251, 116, 19);
+	--label-bg-color--not-checked: rgb(149, 158, 172);
+	--label-bg-color--hover: rgb(251, 116, 19);
+	--button-bg-color: rgb(251, 116, 19);
+	--button-bg-color--hover: white;
+	--rating-bg-color: rgb(37, 45, 55);
+
+	/* Font */
+	--title-font-color: white;
+	--text-font-color: rgb(124, 135, 152);
+	--label-font-clor: rgb(124, 135, 152);
+	--label-font-color--checked: white;
+	--label-font-color--not-checked: white;
+	--label-font-color--hover: white;
+	--button-font-color: white;
+	--button-font-color--hover: rgb(251, 116, 19);
+	--rating-font-color: rgb(251, 116, 19);
+	--error-font-color: red;
 }
 
 html {
 	font-size: 62.5%;
-	font-family: Overpass, sans-serif;
 }
 
 body {
@@ -30,10 +66,7 @@ body {
 	min-height: 380px;
 	border-radius: 20px;
 	padding: 30px;
-	background:
-		radial-gradient(ellipse at top,
-			rgb(37, 45, 55),
-			rgb(22, 28, 33) 70%);
+	background: var(--rating-window-bg-color);
 }
 
 .wrapper {
@@ -43,7 +76,7 @@ body {
 	width: 100%;
 	height: 100vh;
 	padding: 30px 20px;
-	background-color: rgb(18, 20, 23);
+	background-color: var(--wrapper-bg-color);
 }
 
 /* rating window */
@@ -51,7 +84,7 @@ body {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	background: rgb(37, 45, 55);
+	background: var(--icon-bg-color);
 }
 
 .icon::before {
@@ -62,25 +95,25 @@ body {
 	background: url('./images/icon-star.svg') no-repeat;
 	background-size: cover;
 	position: relative;
-	top: 32%;
-	left: 30%;
+	top: 30%;
+	left: 29%;
 }
 
 .icon:hover {
 	cursor: pointer;
-	background-color: rgb(149, 158, 172);
+	background-color: var(--icon-bg-color--hover);
 }
 
 .title {
 	margin-bottom: 10px;
-	color: white;
+	color: var(--title-font-color);
 	font-size: 2.7rem;
 	font-weight: 400;
 }
 
 .text {
 	line-height: 2.3rem;
-	color: rgb(124, 135, 152);
+	color: var(--text-font-color);
 }
 
 .scale {
@@ -100,29 +133,29 @@ body {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	background: rgb(37, 45, 55);
-	color: rgb(124, 135, 152);
+	background: var(--label-bg-color);
+	color: var(--label-font-clor);
 	transition: all 0.5s ease;
 }
 
 .input:checked~.label {
-	background-color: rgb(149, 158, 172);
+	background-color: var(--label-bg-color--checked-gray);
 }
 
 .input:checked+.label {
-	background-color: rgb(251, 116, 19);
-	color: white;
+	background-color: var(--label-bg-color--checked-orange);
+	color: var(--label-font-color--checked);
 }
 
 .input:not(:checked)~.label:hover {
 	cursor: pointer;
-	background-color: rgb(251, 116, 19);
-	color: white;
+	background-color: var(--label-bg-color--hover);
+	color: var(--label-font-color--hover);
 }
 
-.input:not(:checked)~.label:hover~.label:nth-child(5n-1) {
-	background-color: rgb(149, 158, 172);
-	color: white;
+.input:not(:checked)~.label:hover~.label:nth-child(n) {
+	background-color: var(--label-bg-color--not-checked);
+	color: var(--label-font-color--not-checked);
 }
 
 .button {
@@ -131,15 +164,20 @@ body {
 	border-radius: 25px;
 	letter-spacing: 2px;
 	border: none;
-	background-color: rgb(251, 116, 19);
-	color: white;
+	background-color: var(--button-bg-color);
+	color: var(--button-font-color);
 	transition: background-color 0.5s, color 1s;
 }
 
 .button:hover {
 	cursor: pointer;
-	background-color: white;
-	color: rgb(251, 116, 19);
+	background-color: var(--button-bg-color--hover);
+	color: var(--button-font-color--hover);
+}
+
+.error {
+	margin-top: 10px;
+	color: var(--error-font-color);
 }
 
 /* thank you window */
@@ -160,15 +198,14 @@ body {
 .rating {
 	padding: 5px 20px;
 	border-radius: 10px;
-	background-color: rgb(37, 45, 55);
-	color: rgba(251, 116, 19);
+	background-color: var(--rating-bg-color);
+	color: var(--rating-font-color);
 	margin-bottom: 30px;
 }
 
 .thank-you-window__text {
 	text-align: center;
 }
-
 
 /* mobile */
 @media (max-width: 480px) {
